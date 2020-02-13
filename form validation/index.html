@@ -1,0 +1,193 @@
+<html lang="en">
+<head>
+  <title>form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="row frm">
+<div class="container">
+    <div class="col-12">
+    <form method="post" onsubmit="register(event)" action="" name="frm">
+        <label>NAME :</label><br>
+        <input type="text" name="username" placeholder="Enter your name" onkeyup="validate(event,'name')">
+        <small id="username"></small>
+        <br>
+
+        <label>EMAIL :</label><br>
+        <input type="email" name="email" placeholder="Enter your email" onkeyup="validate(event,'email')">
+        <small id="userEmail"></small>
+        <br>
+
+        <label>PASSWORD :</label><br>
+        <input type="password" name="password" placeholder="Enter your password" onkeyup="validate(event,'password')">
+        <small id="userPassword"></small>
+        <br>
+
+        <label>CONFIRM PASSWORD :</label><br>
+        <input type="password" name="cnfrm-password" placeholder="Enter your confirm password"  onkeyup="validate(event,'confirmPassword')">
+        <small id="userCnfrmPsrd"></small>
+        <br>
+
+        <label>SELECT COUNTRY :</label>
+        <select  onchange="validate(event,'select')">
+            <option value="0">choose country</option>
+            <option value="1">INDIA</option >
+            <option value="2">PAKISTAN</option >
+            <option value="3">SRILANKA</option >  
+            <option value="4">BANGLADESH</option >     
+        </select >
+        <small id="userCntry"></small>
+
+        <br>
+
+        <input type="submit" value="submit" class="btn btn-primary" id="submit" disabled>
+
+    </form>
+    </div>
+</div>
+</div>
+
+<script>
+
+function register(eve){
+    console.log(eve)
+    eve.preventDefault()
+} 
+
+var emailPattern=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+var error={}
+
+var nameFlag = emailFlag = passwordFlag = cnfrmPsrdFlag = cntryFlag = false
+
+
+function validate(eve,varia){
+    // console.log(eve.target.value,varia)
+
+    if(varia=="name"){
+        if(eve.target.value == "") {
+            console.log("name is required")
+            error.name="name is required"
+            nameFlag=false
+        } else if(eve.target.value.length < 3){
+            console.log("name is too sort")  
+            error.name="name is too sort" 
+            nameFlag=false        
+        }else{
+            error.name=""
+            nameFlag=true
+        }
+
+        document.getElementById("username").innerText=error.name
+    }
+    
+    if(varia=="email"){
+        if(eve.target.value == "") {
+
+            console.log("email is required")
+            error.email="email is required"
+            emailFlag =false
+
+        } else if(!emailPattern.test(eve.target.value)){
+
+            console.log("email is invalid")
+            error.email="email is invalid" 
+            emailFlag =false
+        }else{
+            console.log("email is perfect")
+            error.email=""
+            emailFlag =true
+        }
+
+        document.getElementById("userEmail").innerText=error.email
+    }
+
+    if(varia=="password"){
+        if(eve.target.value == "") {
+            console.log("password is required")
+            error.password="password is required"
+            passwordFlag =false
+
+        } else if(eve.target.value.length < 6){
+            console.log("password is too sort")  
+            error.password="password is too sort"
+            passwordFlag =false         
+        }else{
+            error.password=""
+            passwordFlag =true
+        }
+
+        document.getElementById("userPassword").innerText=error.password
+
+    }
+    if(varia=="confirmPassword"){
+        if(eve.target.value == "") {
+
+            console.log("confirm password is required")
+            error.confirmPassword="confirm password is required"
+            cnfrmPsrdFlag =false
+
+        }else if(document.frm.password.value!= eve.target.value){
+
+            console.log("confirm password is not matching")
+            error.confirmPassword="confirm password is not matching"
+            cnfrmPsrdFlag =false
+
+        }else{
+            error.confirmPassword=""
+            cnfrmPsrdFlag =true
+        }
+
+        document.getElementById("userCnfrmPsrd").innerText=error.confirmPassword
+    }
+    if(varia=="select"){
+        if(eve.target.value == 0) {
+
+            console.log("select is required")
+            error.select="select is required"
+            cntryFlag=false
+
+        }else{
+            error.select="" 
+            cntryFlag=true
+
+        }
+        document.getElementById("userCntry").innerText=error.select 
+    }
+
+    submit();
+}
+
+function submit(){
+
+    if(nameFlag && emailFlag && passwordFlag && cnfrmPsrdFlag && cntryFlag){
+        console.log()
+
+        document.getElementById("submit").removeAttribute("disabled")
+    }else{
+        document.getElementById("submit").setAttribute("disabled","disabled")
+    }
+    
+}
+
+// function eml(eve){
+//     console.log(eve.target.value.length)
+
+//     if(eve.target.value.length < 1) {
+//         console.log("email is required")
+//     }
+// }
+
+</script>
+
+</body>
+</html>
