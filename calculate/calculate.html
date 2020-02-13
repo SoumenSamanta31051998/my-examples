@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+  <title>all calculate</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="row frm">
+<div class="container">
+    <div class="col-12">
+    <form onsubmit="myFunction(document.getElementById('fst').value,document.getElementById('symbl').value,document.getElementById('scnd').value, event)" name="frm">
+        <label>1st Number :</label>
+        <input type="text" name="fstNumber" id="fst">
+
+        <label>select calculate</label>
+        <input type="text" name="smbl" id="symbl">
+
+        <label>2nd Number :</label>
+        <input type="text" name="scndNumber" id="scnd">
+
+        <input type="submit" value="calculate" id="clclt">
+
+    </form>
+    </div>
+    <p id="ansr"></p>
+</div>
+</div>
+
+
+<script>
+
+function myFunction(a, b, c, d){
+
+    console.log(a, c)
+    d.preventDefault()
+    document.getElementById("ansr").innerHTML = parseFloat(a) + parseFloat(c);
+
+    if(document.getElementById('symbl').value =='+'){
+
+        document.getElementById("ansr").innerHTML = parseFloat(a) + parseFloat(c);
+    }
+
+    else if(document.getElementById('symbl').value =='-'){
+
+        document.getElementById("ansr").innerHTML = parseFloat(a) - parseFloat(c);
+    }
+    else if(document.getElementById('symbl').value =='*'){
+
+        document.getElementById("ansr").innerHTML = parseFloat(a) * parseFloat(c);
+    }
+    else if(document.getElementById('symbl').value =='/'){
+
+        document.getElementById("ansr").innerHTML = parseFloat(a) / parseFloat(c);
+    }
+    else if(document.getElementById('symbl').value =='%'){
+
+        document.getElementById("ansr").innerHTML = parseFloat(a) % parseFloat(c);
+    }
+    else{
+
+        alert('you are selected wrong input')
+    }
+
+}
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

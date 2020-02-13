@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+  <title>Student Table</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<table class="table table-bordered table-primary">
+    <thead>
+    <tr >
+        <th>ID</th>
+        <th>NAME</th>
+        <th>ROLL No.</th>
+        <th>SUBJECT</th>
+        <th>DETAILS</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+
+<script>
+
+    var tbl=[
+        {
+            'name': 'qwrtty',
+            'roll_no' : 12,
+            'subject': 'history'
+        },{
+            'name': 'qwerd',
+            'roll_no' : 15,
+            'subject': 'history'
+        },{
+            'name': 'yredg',
+            'roll_no' : 27,
+            'subject': 'history'
+        },{
+            'name': 'yjjg',
+            'roll_no' : 32,
+            'subject': 'history'
+        },{
+            'name': 'qwrtty',
+            'roll_no' : 9,
+            'subject': 'history'
+        },{
+            'name': 'treew',
+            'roll_no' : 1,
+            'subject': 'history'
+        },{
+            'name': 'qwrtty',
+            'roll_no' : 5,
+            'subject': 'history'
+        },{
+            'name': 'gfgu',
+            'roll_no' : 16,
+            'subject': 'history'
+        },{
+            'name': 'aaeeff',
+            'roll_no' : 20,
+            'subject': 'history'
+        },{
+            'name': 'dfskjgfg',
+            'roll_no' : 27,
+            'subject': 'history'
+        }
+    ]
+
+
+var i;
+
+
+function doSomething(){
+
+    alert("hello")
+}
+    
+for (i = 0; i < tbl.length; i++) {
+
+    // create tr
+    var tr = document.createElement("TR");
+
+    // create td
+    var td = document.createElement("TD"); //id 
+    var td1 = document.createElement("TD"); //name
+    var td2 = document.createElement("TD"); //roll
+    var td3 = document.createElement("TD"); //sub
+    var td4 = document.createElement("TD"); //sub
+
+    var text =  document.createTextNode(i+1); //1, 2, 3
+    var text1 =  document.createTextNode(tbl[i].name); 
+    var text2 =  document.createTextNode(tbl[i].roll_no); 
+    var text3 =  document.createTextNode(tbl[i].subject);
+    var btn = document.createElement("BUTTON"); 
+    btn.innerHTML = "view";                
+    btn.addEventListener("click", doSomething, false);
+
+
+    td.appendChild(text);
+    td1.appendChild(text1); 
+    td2.appendChild(text2); 
+    td3.appendChild(text3); 
+    td4.appendChild(btn); 
+
+            
+    tr.appendChild(td); //append first td
+    tr.appendChild(td1); //append 2nd td
+    tr.appendChild(td2); 
+    tr.appendChild(td3); 
+    tr.appendChild(td4);
+
+    document.querySelector("table tbody").appendChild(tr) // append the whole <td> in <tr>
+
+
+}
+
+// console.log(document.querySelector("table tbody"))
+
+</script>
+
+</body>
+</html>

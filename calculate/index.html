@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+  <title>calculate</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="row frm">
+<div class="container">
+    <div class="col-12">
+    <form method="post" onsubmit="myFunction(document.getElementById('fst').value,document.getElementById('scnd').value, event)"  action="" name="frm">
+        <label>1st Number :</label>
+        <input type="text" name="fstNumber" id="fst">
+
+        <label>2nd Number :</label>
+        <input type="text" name="scndNumber" id="scnd">
+
+        <input type="submit" value="calculate" id="clclt">
+
+    </form>
+    </div>
+    <p id="ansr"></p>
+</div>
+</div>
+
+
+<script>
+
+
+
+function myFunction(a, b, c){
+
+    console.log(typeof a, typeof b)
+    c.preventDefault()
+    document.getElementById("ansr").innerHTML = parseFloat(a) + parseFloat(b) 
+
+}
+
+
+
+
+
+// var fst = 
+// var scnd = 
+
+// var ansr = fst + scnd
+
+// document.getElementById("ansr").innerHTML = fst + scnd;
+
+</script>
+
+
+</body>
+</html>
