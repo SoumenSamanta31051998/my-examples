@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<div class="mnDv">
+    <form onsubmit="register(event)" id="frm">
+        Name: <input type="text" placeholder="Enter your name" id="nm" name="name"><br><br>
+        C/O: <input type="text" placeholder="Enter your father name" id="cO" name="fName"><br><br>
+        Mobile no: <input type="text" placeholder="Enter your mobile no" id="mbNo" name="mobile"><br><br>
+        Gender: <input type="radio" name="gender" id="ml" value="0"> Male
+                <input type="radio" name="gender" id="fML" value="1"> Female
+        <br><br>
+        Subject: <select id="slct" onkeyup="validate(event,'sbjct')" name="selectSubject">
+                    <option value="0">select subject</option>
+                    <option value="1">Beng</option>
+                    <option value="2">Eng</option>
+                    <option value="3">Hist</option>
+                    <option value="4">Math</option>
+                 </select>
+        <br><br>
+        <input type="submit" value="submit">
+        <button id="btn">cancel</button>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+
+function register(sbmt){
+    sbmt.preventDefault()
+    // console.log(nm.value, cO.value, mbNo.value, $("input[name=gender]:checked").val())
+    console.log($("#frm").serializeArray())
+}
+
+$(document).ready(function(){
+
+    $("#btn").on("click", function(){
+        $("#nm").val("")
+        $("#cO").val("")
+        $("#mbNo").val("")
+        $("input[name=gender]:checked").val("")
+        $("#slct").val("")
+
+    })
+})
+
+
+</script>
+
+</body>
+</html>
