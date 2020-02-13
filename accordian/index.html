@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>Accordian</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="mn-dv">
+    <div class="lft-dv">
+        <h2>Left Div</h2>
+        <p style="display: none;">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+        </p>
+    </div>
+    <div class="lft-dv">
+        <h2>Center Div</h2>
+        <p style="display: none;">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+              
+        </p>    
+    </div>
+    <div class="lft-dv">
+        <h2>Right Div</h2>
+        <p style="display: none;">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Ipsa, quidem accusantium maiores beatae quas cupiditate
+              esse blanditiis sequi vero repudiandae id magnam dolore
+        </p>    
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+    $("h2").on("click",function(){
+        if($(this).parent().hasClass("active")){
+            $(this).parent().removeClass("active")
+            $(this).next().slideUp();
+        }else{
+            $('.lft-dv').removeClass("active")
+            $('.lft-dv').find("p").slideUp()
+            // 
+            $(this).parent().addClass("active")
+            $(this).next().slideDown();
+        }
+        // $(this).next().slideToggle();
+    })
+})
+
+</script>
+
+
+</body>
+</html>
