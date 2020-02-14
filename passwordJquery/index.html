@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+  <title>Password EYE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+<div class="row">
+    <div class="col-12">
+        <input type="password" name="password" placeholder="enter your password here" id="inptPsrd">
+        <a href="javascript:void(0)" id="show"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+        <!-- <a href="javascript:void(0)" id="hide"><i class="fa fa-eye" aria-hidden="true"></i></a> -->
+    </div>
+</div>
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+$("#show").on("click", function(){
+    if($("#inptPsrd").attr('type')=="password"){
+        $("#inptPsrd").attr('type', "text")
+        $("#show").find("i").removeClass("fa-eye-slash").addClass("fa-eye")
+    }else{
+        $("#inptPsrd").attr('type', "password")
+        $("#show").find("i").removeClass("fa-eye").addClass("fa-eye-slash")
+    }
+});
+
+    $("#inptPsrd").focus();
+
+})
+
+
+</script>
+
+
+</body>
+</html>
