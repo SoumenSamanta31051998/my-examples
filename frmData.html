@@ -1,0 +1,287 @@
+<html lang="en">
+<head>
+  <title>form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link href="https://unpkg.com/pnotify@4.0.0/dist/PNotifyBrightTheme.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/pnotify@4.0.0/dist/umd/PNotify.js"></script>
+
+
+
+<style>
+
+.frm input{border: 1px solid #0000007a;}
+.frm p{color: brown;}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="row frm" style="margin: 0;">
+<div class="container">
+    <div class="col-12"> 
+    
+    <form onsubmit="register(document.getElementById('name').value, document.getElementById('mobile').value, document.getElementById('email').value, document.getElementById('password').value, event); empty(document.getElementById('name').value, document.getElementById('mobile').value, document.getElementById('email').value, document.getElementById('password').value, event);" name="frm">
+        
+       <label>Name: </label><br>
+            <input type="text" id="name" onkeyup="validate(event, 'name')" class="form-control"> <br>
+            <p id="nmNtfctn"></p>
+
+       <label>Mobile: </label><br>
+            <input type="text" id="mobile" onkeyup="validate(event, 'mobile')" class="form-control"><br>
+            <p id="mbNtfctn"></p> 
+
+        <label>Email: </label><br>
+            <input type="email" id="email" onkeyup="validate(event, 'email')" class="form-control"><br>
+            <p id="emlNtfctn"></p> 
+
+        <label>Password: </label><br>
+            <input type="password" id="password" onkeyup="validate(event, 'password')" class="form-control"><br>
+            <p id="psrdNtfctn"></p> 
+
+        <label><input type="submit" value="submit" class="btn btn-primary btn-md"></label>
+    </form>
+
+</div>
+</div>
+</div>
+
+<!-- start table --><!-- start table -->
+
+<div class="row tbl" style="margin: 0;">
+    <div class="container">
+        <div class="col-12"> 
+            <table class="table">
+                <thead class="table-primary">
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                </thead>
+
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- START JAVASCRIPT FROM HERE -->
+
+<script>
+
+var submitted = false
+
+var emailptrn = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+// for form console data value
+
+function register(a, b, c, d, e){
+
+    console.log({name : a, mobile : b, email : c, password : d})
+    e.preventDefault()
+    alert("name : " + a +'\n'+ "mobile : " + b +'\n'+ "email : " + c +'\n'+ "password : " + d)
+
+
+        // table javascript start
+
+
+        var tr = document.createElement("TR");
+
+        var td = document.createElement("TD");
+        var td1 = document.createElement("TD");
+        var td2 = document.createElement("TD");
+        var td3 = document.createElement("TD");
+
+        var text = document.createTextNode(a);
+        var text1 = document.createTextNode(b);
+        var text2 = document.createTextNode(c);
+        var text3 = document.createTextNode(d);
+
+            td.appendChild(text);
+            td1.appendChild(text1); 
+            td2.appendChild(text2); 
+            td3.appendChild(text3); 
+
+                    
+            tr.appendChild(td);
+            tr.appendChild(td1);
+            tr.appendChild(td2); 
+            tr.appendChild(td3); 
+
+            document.querySelector("table tbody").appendChild(tr)
+
+            document.getElementById('name').value = ""
+            document.getElementById('mobile').value = ""
+            document.getElementById('email').value = ""
+            document.getElementById('password').value = ""
+
+        submitted = true
+
+        document.getElementById("nmNtfctn").innerText = ""
+
+
+
+
+}
+
+// for empty notification and border color on input
+
+function empty(nm, mb, eml, psd){
+
+
+    if(!submitted){
+
+    // for name plugin varification
+
+        if(nm == ""){
+        nm == "name is blank"
+        document.getElementById("name").style.borderColor = "red";
+        document.getElementById("nmNtfctn").innerText = "name is blank"
+    }else{
+        nm == ""
+        document.getElementById("name").style.borderColor = "#0000007a";
+        document.getElementById("nmNtfctn").innerText = ""
+    }
+
+    // for mobile plugin varification
+
+    if(mb == ""){
+        mb == "mobile is blank"
+        document.getElementById("mobile").style.borderColor = "red";
+        document.getElementById("mbNtfctn").innerText = "mobile is blank"
+
+    }else{
+        mb == ""
+        document.getElementById("mobile").style.borderColor = "#0000007a";
+        document.getElementById("mbNtfctn").innerText = ""
+    }
+
+    // for email plugin varification
+
+    if(eml == ""){
+        eml == "email is blank"
+        document.getElementById("email").style.borderColor = "red";
+        document.getElementById("emlNtfctn").innerText = "email is blank"
+
+    }else{
+        eml == ""
+        document.getElementById("email").style.borderColor = "#0000007a";
+        document.getElementById("emlNtfctn").innerText = ""
+    }
+
+    // for password plugin varification
+
+    if(psd == ""){
+        psd == "password is blank"
+        document.getElementById("password").style.borderColor = "red";
+        document.getElementById("psrdNtfctn").innerText = "password is blank"
+
+    }else{
+        psd == ""
+        document.getElementById("password").style.borderColor = "#0000007a";
+        document.getElementById("psrdNtfctn").innerText = ""
+    }            
+
+    }
+
+}
+
+// form varification
+
+function validate(evnt, para){
+
+// for name varification
+
+      if(para == "name"){
+        if(evnt.target.value == ""){
+            console.log("Please insert your name")
+            document.getElementById("nmNtfctn").innerText = "Please insert your name"
+        }
+        else if(evnt.target.value.length < 3){
+
+            console.log("name is too small")
+            document.getElementById("nmNtfctn").innerText = "name is too small"
+
+        }else {
+            console.log("")
+            document.getElementById("nmNtfctn").innerText = ""
+        }
+      }
+
+// for mobile varification
+
+      if(para == "mobile"){
+        if(evnt.target.value == ""){
+            console.log("Please insert your mobile number")
+            document.getElementById("mbNtfctn").innerText = "Please insert your mobile number"
+        }
+        else if(evnt.target.value.length < 10){
+
+            console.log("mobile number is too small")
+            document.getElementById("mbNtfctn").innerText = "mobile number is too small"
+
+        }
+        else{
+            console.log("")
+            document.getElementById("mbNtfctn").innerText = ""
+        }
+        
+    }
+
+// for email varification
+
+    if(para == "email"){
+        if(evnt.target.value == ""){
+            console.log("Please insert your email")
+            document.getElementById("emlNtfctn").innerText = "Please insert your email"
+        }
+        else if(!emailptrn.test(evnt.target.value)){
+
+            console.log("email format isn't match")
+            document.getElementById("emlNtfctn").innerText = "email format isn't match"
+
+        }
+        else{
+            console.log("")
+            document.getElementById("emlNtfctn").innerText = ""
+        }
+        
+    }
+// for password varification
+
+    if(para == "password"){
+        if(evnt.target.value == ""){
+            console.log("Please insert your password")
+            document.getElementById("psrdNtfctn").innerText = "Please insert your password"
+        }
+        else if(evnt.target.value.length < 6){
+
+            console.log("password is too small")
+            document.getElementById("psrdNtfctn").innerText = "password is too small"
+
+        }
+        else{
+            console.log("")
+            document.getElementById("psrdNtfctn").innerText = ""
+        }
+        
+    }    
+
+}
+
+
+
+</script>
+
+</body>
+</html>
