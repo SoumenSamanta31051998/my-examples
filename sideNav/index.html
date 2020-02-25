@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>side nav</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<style>
+
+.active {
+  background-color: coral;
+  color: white;
+  border: 1px solid #000;
+}
+
+</style>
+
+
+</head>
+<body>
+                <div class="btn">
+                    <div class="click-btn active" onclick="myfunction(event)" data-target="cntnt1" id="hm">Home</div>
+                    <div class="click-btn" onclick="myfunction(event)" data-target="cntnt2" id="hm2">Home1</div>
+                    <div class="click-btn" onclick="myfunction(event)" data-target="cntnt3" id="hm3">Home2</div>
+                </div>
+                <div class="cntnt" id="cntnt-mn">
+                    <div class="sdNvCntnt" id="cntnt1" style="display: block;">
+                        <h3>SOME CONTENT</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure in saepe magnam quos ratione mollitia alias sit 
+                            odit eum ex quo neque laborum qui, ipsa vel impedit ea nemo eveniet.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure in saepe magnam quos ratione mollitia alias sit 
+                        </p>
+                    </div>
+                    
+                    <div class="sdNvCntnt" id="cntnt2">
+                        <h3>SOME CONTENT 1</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure in saepe magnam quos ratione mollitia alias sit 
+                            odit eum ex quo neque laborum qui, ipsa vel impedit ea nemo eveniet.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure in saepe magnam quos ratione mollitia alias sit 
+                        </p>
+                    </div>   
+                    
+                    <div class="sdNvCntnt" id="cntnt3">
+                        <h3>SOME CONTENT 2</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure in saepe magnam quos ratione mollitia alias sit 
+                            odit eum ex quo neque laborum qui, ipsa vel impedit ea nemo eveniet.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure in saepe magnam quos ratione mollitia alias sit 
+                        </p>
+                    </div>
+                    <div class="demo"></div>                                  
+                </div>
+            </div>
+<!-- start sript -->
+
+<script>
+
+function myfunction(evnt){
+
+    var Id = evnt.target.getAttribute("data-target") 
+    var content = document.getElementsByClassName("sdNvCntnt")
+    var buttonActive = document.getElementsByClassName("active")
+    
+    for (var i = 0; i < content.length; i++) {
+        
+        content[i].style.display="none"
+    }
+
+    document.getElementById(Id).style.display="block"
+
+    for (var i = 0; i < buttonActive.length; i++) {
+        
+        buttonActive[i].classList.remove("active")
+    }
+        evnt.target.classList.add("active")
+        
+}
+
+</script>
+
+</body>
+</html>

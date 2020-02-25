@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<style> 
+
+.lft{display:inline-block; width:10%;}
+.rght{display:inline-block; width:85%;}
+
+button.btns {width: 100%;}
+
+.active{background-color: coral;
+  color: white;}
+
+</style> 
+</head> 
+<body> 
+<div class="lft">
+  <button class="btns active" onclick="myFunctionOne('mrng', 'cntnt0', event)">MORNING</button>
+  <button class="btns" onclick="myFunctionOne('nn', 'cntnt1', event)">NOON</button>
+  <button class="btns" onclick="myFunctionOne('aftrnn', 'cntnt2', event)">AFTERNOON</button>
+  <button class="btns" onclick="myFunctionOne('evng', 'cntnt3', event)">EVENING</button>
+  <button class="btns" onclick="myFunctionOne('nght', 'cntnt4', event)">NIGHT</button>
+</div>
+
+<div class="rght" id="demo"></div>
+
+<script>
+
+var head = {
+    cntnt0: "<h4>Good Morning</h4>",
+    cntnt1: "<h4>Good Noon</h4>",
+    cntnt2: "<h4>Good Afternoon</h4>",
+    cntnt3: "<h4>Good Evening</h4>",
+    cntnt4: "<h4>Good Night</h4>",
+};
+var para = "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure in saepe magnam quos ratione mollitia alias sit odit eum ex quo neque laborum qui, ipsa vel impedit ea nemo eveniet.Lorem ipsum dolor sit amet consectetur adipisic</p>"
+
+var buttonActive = document.getElementsByClassName("active")
+
+function myFunctionOne(day, number, actv){
+	
+// for showing a day name and paragraph
+    document.getElementById("demo").innerHTML = head[number] + para 
+
+// for active class in button
+
+    for (var i = 0; i < buttonActive.length; i++) {
+    
+    buttonActive[i].classList.remove("active")
+        }
+    actv.target.classList.add("active") 
+
+}
+// for good morning active
+
+    document.getElementById("demo").innerHTML = head.cntnt0 + para 
+
+</script>
+
+</body> 
+</html> 

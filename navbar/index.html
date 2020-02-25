@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>navbar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body class="body">
+
+    <div class="nav">
+    <div class="container">
+        <div class="nav-lft">
+            <img src="google_PNG19644.png">
+        </div>
+        <div class="nav-rght">
+            <ul class="mn-ul">
+                <li><a href="#">HOME</a></li>
+
+                <li id="dropdown" class="dropbtn">
+                    <a href="#" onclick="myFunction(event)">ABOUT US <i class="fa fa-caret-down"></i></a>
+                    <ul id="myDropdown" class="dropdown-content">
+                      <li><a href="#">ABOUT 1</a></li>
+                      <li><a href="#">ABOUT 2</a></li>
+                      <li><a href="#">ABOUT 3</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">CONTACT US</a></li>
+
+                <li id="dropdown2" class="dropbtn">
+                    <a href="#" onclick="myFunction(event)">DROPDOWN <i class="fa fa-caret-down"></i></a>
+                    <ul id="myDropdown2" class="dropdown-content">
+                      <li><a href="#">DROPDOWN 1</a></li>
+                      <li><a href="#">DROPDOWN 2</a></li>
+                      <li><a href="#">DROPDOWN 3</a></li>
+                    </ul>
+                </li> 
+
+                <li><a href="#">PRIVACY</a></li>
+                <li class="fr-btn"><button>LOG IN</button></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+
+<script>
+
+function myFunction(drpdwn) {
+
+    var drop = document.querySelectorAll(".dropbtn > a")
+
+    for (i = 0; i < drop.length; i++) {
+
+        drop[i].classList.remove("show")
+    }
+        drpdwn.target.classList.add("show") 
+
+}
+
+
+</script>
+
+</body>
+</html>

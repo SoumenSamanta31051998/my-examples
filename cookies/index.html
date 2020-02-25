@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title>cookies</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<style>
+
+.cookie{position: fixed; bottom: 0; z-index: 999; background-color: #3c4876; padding: 5px 20px;}
+.cookie-cntnt p{font-size: 16px; color: #fff; font-family: "Titillium Web", sans-serif; margin: 0; line-height: 25px;}
+.cookie-cntnt a{color: #ffffff;}
+.cookie-button  button.cookie-btn{background-color: #e86256; color: #fff; border:none; cursor: pointer; padding: 3px 15px;
+                                                font-size: 14px; font-weight: 600;}
+.cookie-cntnt{display: inline-block; width: 90%; padding: 0 8% 0 0;}
+.cookie-button{display: inline-block; width: 9%; vertical-align: top; padding: 10px 0 0 0; text-align: right;}
+
+@media screen and (max-width:767px){
+
+.cookie{padding: 10px 12px;}
+.cookie-cntnt p {font-size: 14px; line-height: 21px;}
+.cookie-cntnt{padding: 0; width: 100%;}
+.cookie-button button.cookie-btn{padding: 3px 22px;}
+}
+
+@media screen and (max-width:1199px){
+
+.cookie-button{padding: 2.5% 0 0 0;}
+
+}
+
+@media screen and (min-width:1600px){
+
+.cookie{width:100%;}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- start cookies html-->
+
+<div class="cookie" style="display:none;">
+    <div class="cookie-cntnt">
+        <p>
+        This site uses cookies to store information on your computer. Some are essential to make our site work; others help us improve the user experience. By using the site, you consent to the placement of these cookies. Read our <a href="../../terms_of_service">Terms of Service</a> to learn more
+        </p>
+    </div>
+            
+    <div class="cookie-button">
+        <button type="button" class="cookie-btn">ACCEPT</button>
+    </div>
+</div>
+
+<!-- end cookies html-->
+
+
+
+<!-- start cookies javascript -->
+
+<script>
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+
+// var path = '<?php //echo $_SERVER['REQUEST_URI'] ?>';
+// for accordion plus-minus-icon //
+$(document).ready(function(){
+  if(getCookie("allowCookies")!="true"){
+    if(window.location.pathname=='/'){
+      // $('#myModal').modal('show');
+      $('.cookie').fadeIn();
+    }
+    $('.cookie-btn').click(function(){
+      document.cookie="allowCookies=true";
+      $('.cookie').fadeOut();
+    })
+  }
+});
+</script>
+
+</body>
+</html>
